@@ -1,0 +1,70 @@
+<div class="container mt-5">
+  <div class="card shadow-lg p-4 mx-auto" style="max-width: 600px;">
+    <h2 class="text-center mb-4">Update Product {{productId}}</h2>
+
+    <form [formGroup]="UpdateForm" (ngSubmit)="updateProduct()">
+
+      <!-- Name -->
+      <div class="mb-3">
+        <label class="form-label fw-bold">Name:</label>
+        <input type="text" formControlName="name" class="form-control form-control-lg">
+        <small *ngIf="!NameValid && UpdateForm.get('name')?.touched" class="text-danger">
+          Name not valid!
+        </small>
+      </div>
+
+      <!-- Price & Quantity in row -->
+      <div class="row">
+        <div class="col mb-3">
+          <label class="form-label fw-bold">Price:</label>
+          <input type="number" formControlName="price" class="form-control form-control-lg">
+          <small *ngIf="!PriceValid && UpdateForm.get('price')?.touched" class="text-danger">
+            Price not valid!
+          </small>
+        </div>
+        <div class="col mb-3">
+          <label class="form-label fw-bold">Quantity:</label>
+          <input type="number" formControlName="quantity" class="form-control form-control-lg">
+          <small *ngIf="!QuantityValid && UpdateForm.get('quantity')?.touched" class="text-danger">
+            Quantity not valid!
+          </small>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+        <label class="form-label fw-bold">Description:</label>
+        <textarea formControlName="description" class="form-control form-control-lg" rows="3"></textarea>
+        <small *ngIf="!DescriptionValid && UpdateForm.get('description')?.touched" class="text-danger">
+          Description not valid!
+        </small>
+      </div>
+
+      <!-- Image URL -->
+      <div class="mb-3">
+        <label class="form-label fw-bold">Image URL:</label>
+        <input type="text" formControlName="imageUrl" class="form-control form-control-lg">
+        <small *ngIf="!ImageUrlValid && UpdateForm.get('imageUrl')?.touched" class="text-danger">
+          Image URL required!
+        </small>
+        <div *ngIf="UpdateForm.get('imageUrl')?.value" class="mt-2 text-center">
+          <img [src]="UpdateForm.get('imageUrl')?.value" class="img-thumbnail" style="max-width: 150px;">
+        </div>
+      </div>
+
+      <!-- Category -->
+      <div class="mb-4">
+        <label class="form-label fw-bold">Category:</label>
+        <select class="form-select form-select-lg" formControlName="categoryId">
+          <option *ngFor="let cat of categories$ | async" [value]="cat.Id">{{cat.Name}}</option>
+        </select>
+      </div>
+
+      <!-- Submit -->
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-lg px-5" [disabled]="UpdateForm.invalid">Save</button>
+      </div>
+
+    </form>
+  </div>
+</div>
