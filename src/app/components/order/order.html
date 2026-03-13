@@ -1,0 +1,26 @@
+<div class="mb-3">
+  <!-- <select class="form-select form-select-lg">
+      <option *ngFor="let item of categories" [value]="item.Id">{{item.Name}}</option>
+  </select> -->
+  <!-- <select class="form-select form-select-lg" [(ngModel)]="selectedCategoryId">  -->
+    <!-- <select class="form-select form-select-lg" (change)="filterProductsByCategory()" [(ngModel)]="selectedCategoryId">  -->
+         <select class="form-select form-select-lg" [(ngModel)]="selectedCategoryId" (change)="onCategoryChange()"> 
+
+        <option selected [value]="0">All</option>
+      @for (c of categories; track c.Id) {
+      <option [value]=" c.Id">{{ c.Name }}</option>
+    }
+  </select>
+  <br>
+<!-- <h4>Selected Category Id: {{ selectedCategoryId }}</h4> -->
+<!-- <h5>Date: {{myDate | date:'shortDate'}}</h5> -->
+
+<!--  Custom pipe -->
+<!-- <h5>Number: {{num | square}}</h5> -->
+ <!-- <h5>Number: {{num | square:4}}</h5> -->
+
+</div>
+<div class="my-5">
+<app-products [selectedCategoryId]="selectedCategoryId" (onTotalPriceChanges)="calcTotalPrice($event)"></app-products>
+<h2 class="text-center">Total Price: <span class="text-danger">{{recievedTotalPrice}}</span></h2><br>
+</div>
