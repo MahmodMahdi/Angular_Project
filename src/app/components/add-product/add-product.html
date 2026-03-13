@@ -1,0 +1,58 @@
+<div class="container mt-5">
+  <div class="card shadow p-4 mx-auto" style="max-width: 600px;">
+    <h2 class="text-center mb-4">Add New Product</h2>
+
+    <form  #addProductForm="ngForm" style="width: 100%;"  (submit)="addNewProduct()">
+        <div class="col mb-3">
+          <label class="form-label fw-bold">Id:</label>
+          <input type="number" name="id" [(ngModel)]="newProduct.id" class="form-control form-control-lg">
+        </div>
+      <div class="mb-3">
+        <label class="form-label fw-bold">Name:</label>
+        <input #PName="ngModel" type="text" name="name" required pattern="^[a-zA-Z]{3,30}$" 
+               [(ngModel)]="newProduct.name" class="form-control form-control-lg">
+        <div *ngIf="PName.invalid && PName.touched" class="text-danger">
+          <span *ngIf="PName.errors?.['required']">Name is required</span><br>
+          <span *ngIf="PName.errors?.['pattern']">Name must be 3-30 letters</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <label class="form-label fw-bold">Price:</label>
+          <input type="number" name="price" [(ngModel)]="newProduct.price" class="form-control form-control-lg">
+        </div>
+        <div class="col mb-3">
+          <label class="form-label fw-bold">Qty:</label>
+          <input type="number" name="quantity" [(ngModel)]="newProduct.quantity" class="form-control form-control-lg">
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-bold">Description:</label>
+        <input type="text" name="description" [(ngModel)]="newProduct.description" class="form-control form-control-lg">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-bold">Image:</label>
+        <input type="file" name="imageUrl" [(ngModel)]="newProduct.imageUrl" class="form-control form-control-lg">
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label fw-bold">Category:</label>
+        <!-- <select class="form-select form-select-lg" name="categoryId" 
+                (change)="onCategoryChange()" [(ngModel)]="newProduct.categoryId">
+          <option *ngFor="let cat of categories$ | async" [value]="cat.Id">{{cat.Name}}</option>
+        </select> -->
+        <select class="form-select form-select-lg" name="categoryId"
+        (change)="onCategoryChange($event)" [(ngModel)]="newProduct.categoryId">
+  <option *ngFor="let cat of categories$ | async" [value]="cat.Id">{{cat.Name}}</option>
+</select>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" [disabled]="addProductForm.invalid" class="btn btn-primary btn-lg px-5">Submit</button>
+      </div>
+
+    </form>
+  </div>
+</div>
