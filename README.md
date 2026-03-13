@@ -45,6 +45,17 @@ http://localhost:4200/
 
 The application will automatically reload whenever you modify any of the source files.
 
+
+## Services
+
+The project uses Angular **services** to handle API calls:
+
+- `ProductService` for CRUD operations on products
+- `CategoryService` for CRUD operations on categories
+- Other services can be added for handling different API resources
+
+
+
 ## Mock Backend (json-server)
 
 To start the json-server for CRUD operations:
