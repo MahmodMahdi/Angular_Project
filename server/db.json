@@ -1,0 +1,82 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Product 77",
+      "price": 200,
+      "imageUrl": "/Images/2.jpg",
+      "quantity": 60,
+      "description": "Description for Product 2",
+      "categoryId": 1
+    },
+    {
+      "id": "4",
+      "name": "Product 4",
+      "price": 500,
+      "imageUrl": "/Images/5.jpg",
+      "description": "Description for Product 5",
+      "quantity": 30,
+      "categoryId": 1
+    },
+    {
+      "id": "5",
+      "name": "Product 5",
+      "price": 600,
+      "imageUrl": "/Images/6.jpg",
+      "description": "Description for Product 6",
+      "quantity": 60,
+      "categoryId": 2
+    },
+    {
+      "id": "6",
+      "name": "Product 6",
+      "price": 600,
+      "imageUrl": "/Images/2.jpg",
+      "description": "Description for Product 6",
+      "quantity": 60,
+      "categoryId": 3
+    },
+    {
+      "id": "7",
+      "name": "ljkkljkhjjklhjhk",
+      "price": 200,
+      "quantity": 60,
+      "description": "Description for Product 2",
+      "categoryId": "1",
+      "imageUrl": "/Images/6.jpg"
+    },
+    {
+      "id": "2",
+      "name": "fdas",
+      "categoryId": null
+    },
+    {
+      "id": "3",
+      "name": "klsdf",
+      "categoryId": null
+    },
+    {
+      "id": "20",
+      "name": "mahj",
+      "categoryId": null
+    }
+  ],
+  "categories": [
+    {
+      "Id": 1,
+      "Name": "Category 1",
+      "id": "f247"
+    },
+    {
+      "Id": 2,
+      "Name": "Category 2",
+      "id": "2c45"
+    },
+    {
+      "Id": 3,
+      "Name": "Category 3",
+      "id": "f8cc"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
